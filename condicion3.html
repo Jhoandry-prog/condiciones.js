@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Password</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            border: 1px solid rgb(61, 144, 245);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .select-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px; 
+            margin-bottom: 15px;
+        }
+
+        select {
+            font-size: 18px;
+            padding: 5px;
+            width: 60px; 
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ingresa el password</h1>
+
+        <!-- Contenedor para alinear los selectores -->
+        <div class="select-group">
+            <select class="digit" id="digit1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <select class="digit" id="digit2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <select class="digit" id="digit3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+
+        <button id="ingresar">Ingresar</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        const botonIngresar = document.querySelector('#ingresar');
+        const resultado = document.querySelector('#resultado');
+
+        botonIngresar.addEventListener('click', function() {
+            
+            const digito1 = document.querySelector('#digit1').value;
+            const digito2 = document.querySelector('#digit2').value;
+            const digito3 = document.querySelector('#digit3').value;
+
+            const password = digito1 + digito2 + digito3;
+
+            // Verificar el password
+            if (password === '911') {
+                resultado.textContent = 'password 1 correcto';
+            } else if (password === '714') {
+                resultado.textContent = 'password 2 correcto';
+            } else {
+                resultado.textContent = 'password incorrecto';
+            }
+        });
+    </script>
+</body>
+</html>
+

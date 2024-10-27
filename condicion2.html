@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedir Stickers</title>
+  <style>
+    .container {
+      text-align: center;
+    }
+
+    .sticker-container {
+      display: inline-block;
+      margin: 20px;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    input[type="number"] {
+      margin: 20px;
+      width: 150px;
+      text-align: center;
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Puedes llevar hasta 10 stickers en total</h2>
+
+    <div class="sticker-container">
+      <img src="img-2/bard-stiker.jpg" alt="Bard Sticker">
+      <input type="number" class="sticker" value="0" min="0">
+    </div>
+
+    <div class="sticker-container">
+      <img src="img-2/html-stiker.jpg" alt="html Sticker">
+      <input type="number" class="sticker" value="0" min="0">
+    </div>
+
+    <div class="sticker-container">
+      <img src="img-2/github-stiker.jpg" alt="Github Sticker">
+      <input type="number" class="sticker" value="0" min="0">
+    </div>
+
+    <!-- Párrafo para mostrar el resultado -->
+    <div class="boxboton">
+      <p id="parrafo"></p>
+      <button onclick="
+        let stickers = document.querySelectorAll('.sticker');
+        let sumaStiker = 0;
+        stickers.forEach(sticker => {
+          sumaStiker += Number(sticker.value);
+        });
+
+        let totalStiker = document.querySelector('#parrafo');
+
+        if (sumaStiker <= 10) {
+          totalStiker.innerHTML = 'Llevas ' + sumaStiker + ' stickers';
+        } else {
+          totalStiker.innerHTML = 'Llevas demasiados stickers';
+        }
+      ">Verificar</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
